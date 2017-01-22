@@ -1,0 +1,49 @@
+{
+  "name": "formred",
+  "version": "0.9.0",
+  "description": "The ergonomic React/Redux form library",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "clean": "rimraf es lib dist _book",
+    "build": "npm run build:lib && npm run build:es && npm run build:umd && npm run build:min",
+    "build:es": "babel src --source-maps --out-dir es",
+    "build:lib": "cross-env BABEL_ENV=lib babel src --source-maps --out-dir lib",
+    "build:umd": "rollup -c -i es/index.js -o dist/form-red.js",
+    "build:min": "cross-env ROLLUP_ENV=min rollup -c -i es/index.js -o dist/form-red.min.js",
+    "docs:prepare": "gitbook install",
+    "docs:build": "npm run docs:prepare && gitbook build -g zewish/formred",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs": "npm run docs:clean && npm run docs:build",
+    "prepublish": "npm run build && npm run docs"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src"
+  ],
+  "author": "Iskren Slavov <iskren.s@gmail.com>",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-preset-es2015-no-commonjs": "0.0.2",
+    "babel-preset-react": "^6.16.0",
+    "cross-env": "^3.1.4",
+    "gitbook-cli": "^2.3.0",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.41.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "uglify-js": "git+ssh://git@github.com/mishoo/UglifyJS2.git#harmony"
+  },
+  "dependencies": {
+    "o.set": "^1.0.5",
+    "oget": "^1.0.7"
+  }
+}
