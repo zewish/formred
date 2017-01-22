@@ -15,8 +15,8 @@
     "docs:prepare": "gitbook install",
     "docs:build": "npm run docs:prepare && gitbook build -g zewish/formred",
     "docs:watch": "npm run docs:prepare && gitbook serve",
-    "docs": "npm run docs:clean && npm run docs:build",
-    "prepublish": "npm run build && npm run docs"
+    "docs": "npm run && npm run docs:build",
+    "prepublish": "npm run clean && npm run build && npm run docs"
   },
   "files": [
     "dist",
