@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
+  "browser": "dist/form-red.js",
   "scripts": {
     "clean": "rimraf es lib dist _book",
     "build": "npm run build:lib && npm run build:es && npm run build:umd && npm run build:min",
@@ -24,6 +25,13 @@
     "es",
     "src"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zewish/formred.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zewish/formred/issues"
+  },
   "author": "Iskren Slavov <iskren.s@gmail.com>",
   "license": "BSD-2-Clause",
   "devDependencies": {

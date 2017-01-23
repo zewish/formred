@@ -20,9 +20,9 @@ The following builds are available:
 
 ### Documentation
 
-* [Getting Started](./docs/Getting-Started.md)
-* [Form](./docs/Form.md)
-* [Connect to Form](./docs/Connect-to-Form.md)
-* [Field](./docs/Field.md)
-* [Using Actions](./docs/Using-Actions.md)
-* [Available Actions](./docs/Available-Actions.md)
+* [Getting Started](https://formred.js.org/docs/Getting-Started.html)
+* [Form](https://formred.js.org/docs/Form.html)
+* [Connect to Form](https://formred.js.org/docs/Connect-to-Form.html)
+* [Field](https://formred.js.org/docs/Field.html)
+* [Using Actions](https://formred.js.org/docs/Using-Actions.html)
+* [Available Actions](https://formred.js.org/docs/Available-Actions.html)
