@@ -3,13 +3,16 @@ import set from 'o.set';
 
 export default (form) => {
     const { fields, values, opts } = form;
-    const errors = form.opts.validate(values, opts);
 
-    if (!(typeof errors == 'object')) {
+    form.errors = null;
+    if (!opts || !opts.validate) {
         return form;
     }
 
-    form.errors = null;
+    const errors = opts.validate(values, opts);
+    if (!(typeof errors == 'object')) {
+        return form;
+    }
 
     Object.keys(fields)
     .forEach(fieldName => {
