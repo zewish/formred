@@ -2,7 +2,7 @@ describe('index.js', () => {
     let index = require('../src/index.js');
 
     it('exports proper keys', () => {
-        index.should.have.keys(
+        index.should.include.keys(
             'actions'
             , 'reducer'
             , 'connectToForm'

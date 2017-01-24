@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 import get from 'oget';
 
 export default
@@ -35,7 +34,7 @@ class Form extends Component {
 
     valuesSet = false
 
-    componentWillReceiveProps({ wrappedProps, opts, formActions }) {
+    componentWillReceiveProps({ opts, formActions }) {
         if (this.valuesSet) {
             return;
         }

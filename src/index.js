@@ -13,7 +13,7 @@ export {
 };
 
 export const formRed = (
-    opts
+    opts = {}
     , mapPropsToOpts = () => ({})
 ) => Wrapped => {
     if (!opts.name) {
