@@ -16,9 +16,10 @@
     "docs:prepare": "gitbook install",
     "docs:build": "npm run docs:prepare && gitbook build -g zewish/formred",
     "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs:publish": "rimraf _book && npm run docs:build && cd _book && echo 'formred.js.org' > CNAME && git init && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && git add . && git commit -am 'Update docs' && git push git@github.com:zewish/formred gh-pages --force",
     "docs": "npm run docs:prepare && npm run docs:build",
     "test": "cross-env BABEL_ENV=test mocha -r babel-register -r jsdom-global/register -r test/init.js test/*.test.js",
-    "prepublish": "npm run test && npm run clean && npm run build && npm run docs"
+    "prepublish": "npm run test && npm run clean && npm run build && npm run docs:publish"
   },
   "files": [
     "dist",
