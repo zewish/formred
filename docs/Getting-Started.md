@@ -59,7 +59,7 @@ class MyForm extends Component {
                       disabled={submitting}
                     />
 
-                    {submitting && <div><Loader /></div>}
+                    {submitting && <div>Loading...</div>}
                 </form>
             </div>
         );
