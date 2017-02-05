@@ -1,5 +1,6 @@
 import get from 'oget';
 import set from 'o.set';
+import unset from './unset';
 import omit from './omit';
 import validate from './validate';
 import { empty } from './make-value';
@@ -33,21 +34,19 @@ const emptyField = {
     , type: 'text'
 };
 
-const parseValues = (fields, values = {}, omitFieldName) => Object
+const parseValues = (fields, values = {}) => Object
 .keys(fields)
 .reduce((obj, fieldName) => {
-    if (fieldName === omitFieldName) {
-        return obj;
+    if (!get(obj, fieldName)) {
+        set(
+            obj
+            , fieldName
+            , empty(fields[fieldName].type)
+        );
     }
 
-    set(obj, fieldName
-        , get(values, fieldName) || empty(
-            fields[fieldName].type
-        )
-    );
-
     return obj;
-}, {});
+}, values);
 
 export default (state = {}, { type, payload }) => {
     const formName = get(payload, 'formName')
@@ -107,7 +106,7 @@ export default (state = {}, { type, payload }) => {
 
         case REMOVE:
             form.fields = omit(fields, fieldName);
-            form.values = parseValues(fields, values, fieldName);
+            form.values = unset(values, fieldName);
 
             return {
                 ...state
