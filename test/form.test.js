@@ -1,6 +1,6 @@
-describe('form.js', () => {
-    let Form = require('../src/form.js').default;
+import Form from '../src/form.js';
 
+describe('form.js', () => {
     let inst
         , formActions
         , form

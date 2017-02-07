@@ -3,14 +3,17 @@ import set from 'o.set';
 import omit from './omit';
 
 export default (obj, path) => {
-    const [ , parentPath, key ] = path
+    const [ shallowKey, parentPath, key ] = path
     .replace(/\[/g, '.')
     .replace(/\]/g, '')
     .replace(/^\./, '')
     .split(/(.*[^.])(?:\.)/);
 
-    let parent = get(obj, parentPath);
+    if (!parentPath || !key) {
+        return omit(obj, shallowKey);
+    }
 
+    let parent = get(obj, parentPath);
     if (!parent) {
         return obj;
     }

@@ -1,8 +1,8 @@
-describe('index.js', () => {
-    let index = require('../src/index.js');
+import * as index from '../src/index.js';
 
+describe('index.js', () => {
     it('exports proper keys', () => {
-        index.should.include.keys(
+        index.should.have.keys(
             'actions'
             , 'reducer'
             , 'connectToForm'
