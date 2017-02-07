@@ -1,6 +1,6 @@
 {
   "name": "formred",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "The ergonomic React/Redux form library",
   "main": "lib/index.js",
   "module": "es/index.js",
