@@ -16,7 +16,7 @@ The following builds are available:
 
 * ./lib/ -> a commonjs build;
 * ./es/ -> an ES modules build. Useful if you want to do tree-shaking in your build;
-* ./dist/ -> a UMD build which exports `FormRed` global. Can be used for demo purposes with the UMD builds of React, Redux and React-Redux.
+* ./dist/ -> an UMD build which exports `FormRed` global. Can be used for demo purposes with the UMD builds of React, Redux and React-Redux.
 
 ### Documentation
 
