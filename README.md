@@ -8,7 +8,7 @@ The ergonomic React/Redux form library
 $ npm install --save formred
 ```
 
-FormRed has been tested with **React 15.4+ and React-Redux 5.0+**.
+FormRed has been tested with **React 15.5+ and React-Redux 5.0+**.
 
 It may or may not work on older versions of React and/or React-Redux, but compatibility can't be guaranteed.
 

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import connectToForm from './connect-to-form';
 import { empty, fromEvent } from './make-value';
 
@@ -79,4 +80,4 @@ class Field extends Component {
             />
         );
     };
-};
+}

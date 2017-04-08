@@ -26,10 +26,12 @@ export default {
     , globals: {
         react: 'React'
         , 'react-redux': 'ReactRedux'
+        , 'prop-types': 'PropTypes'
     }
     , external: [
         'react'
         , 'react-redux'
+        , 'prop-types'
     ]
     , sourceMap: true
 };
