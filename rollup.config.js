@@ -1,7 +1,7 @@
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import uglify from 'rollup-plugin-uglify';
-import { minify } from 'uglify-js';
+import { minify } from 'uglify-es';
 
 const plugins = [
     sourceMaps()
