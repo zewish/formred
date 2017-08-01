@@ -85,7 +85,8 @@ export default (formName, key = 'form') => connect(
     , (stateProps, dispatchProps, ownProps) => {
         const keyActions = `${key}Actions`
             , formActions = dispatchProps[keyActions]
-            , form = stateProps[key];
+            , form = stateProps[key]
+            , opts = ownProps.opts || {};
 
         const dispatch = formActions.dispatch;
 
@@ -98,7 +99,7 @@ export default (formName, key = 'form') => connect(
               ? ev
               : onSubmit;
 
-            onSubmitFn = onSubmitFn || form.opts.onSubmit;
+            onSubmitFn = onSubmitFn || opts.onSubmit;
 
             if (!(typeof onSubmitFn == 'function')) {
                 throw Error('No onSubmit function given');
@@ -121,7 +122,7 @@ export default (formName, key = 'form') => connect(
             const {
                 onSubmitError
                 , onSubmitSuccess
-            } = form.opts;
+            } = opts;
 
             if (formError || fieldErrors) {
                 return onSubmitError(formError, fieldErrors);
