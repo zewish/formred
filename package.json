@@ -1,6 +1,6 @@
 {
   "name": "formred",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "The ergonomic React/Redux form library",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -49,6 +49,10 @@
     "cross-env": "^5.0.1",
     "enzyme": "^2.9.1",
     "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchorjs": "^1.1.1",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-prism": "^2.2.1",
     "jsdom": "^11.1.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^3.5.0",
@@ -68,10 +72,6 @@
     "uglify-es": "3.0.27"
   },
   "dependencies": {
-    "gitbook-plugin-anchorjs": "^1.1.1",
-    "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-github": "^2.0.0",
-    "gitbook-plugin-prism": "^2.2.1",
     "o.set": "^1.0.6",
     "oget": "^1.0.9"
   },
