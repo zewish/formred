@@ -70,7 +70,7 @@ export default (state = {}, { type, payload }) => {
 
             return {
                 ...state
-                , [formName]: state[formName] || {
+                , [formName]: {
                     ...form
                     , values: opts.values
                       ? parseValues(fields, opts.values)
