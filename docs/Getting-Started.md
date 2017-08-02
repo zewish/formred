@@ -123,6 +123,13 @@ class MyPage extends Component {
               onSubmitSuccess={() => {
                   console.log('Yay, success!');
               }}
+              onSubmitError={(formError, fieldErrors) => {
+                  if (formError) {
+                      return console.log('Form error:', formError);
+                  }
+
+                  console.log('Field errors received:', fieldErrors);
+              }}
             />
         );
     }

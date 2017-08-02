@@ -13,6 +13,12 @@ create(formName, opts) {}
 // DESTROY
 destroy(formName) {}
 
+// OPTS
+opts(formName, opts) {}
+
+// VALIDATE
+validate(formName) {}
+
 // ADD
 add(formName, fieldName, fieldValue, fieldType = 'text') {}
 

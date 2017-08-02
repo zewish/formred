@@ -3,6 +3,9 @@ export const PREFIX = '@@formRed'
 export const CREATE = `${PREFIX}_CREATE`;
 export const DESTROY = `${PREFIX}_DESTROY`;
 
+export const OPTS = `${PREFIX}_OPTS`;
+export const VALIDATE = `${PREFIX}_VALIDATE`;
+
 export const ADD = `${PREFIX}_ADD`;
 export const REMOVE = `${PREFIX}_REMOVE`;
 
@@ -32,6 +35,19 @@ export const create = (formName, opts) => ({
 
 export const destroy = formName => ({
     type: DESTROY
+    , payload: { formName }
+});
+
+export const opts = (formName, opts) => ({
+    type: OPTS
+    , payload: {
+        formName
+        , opts
+    }
+});
+
+export const validate = formName => ({
+    type: VALIDATE
     , payload: { formName }
 });
 

@@ -5,6 +5,9 @@ import {
     create
     , destroy
 
+    , opts
+    , validate
+
     , add
     , remove
 
@@ -42,6 +45,13 @@ export default (formName, key = 'form') => connect(
             )
             , destroy: () => dispatch(
                 destroy(formName)
+            )
+
+            , opts: (opts) => dispatch(
+                opts(formName, opts)
+            )
+            , validate: () => dispatch(
+                validate(formName)
             )
 
             , add: (fieldName, fieldValue, fieldType) => dispatch(

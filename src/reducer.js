@@ -9,6 +9,9 @@ import {
     CREATE
     , DESTROY
 
+    , OPTS
+    , VALIDATE
+
     , ADD
     , REMOVE
 
@@ -64,24 +67,44 @@ export default (state = {}, { type, payload }) => {
     let fields = get(form, 'fields', {})
         , values = get(form, 'values', {});
 
+    const nextOpts = get(payload, 'opts', {});
+
     switch (type) {
         case CREATE:
-            const opts = get(payload, 'opts', {});
-
             return {
                 ...state
                 , [formName]: {
                     ...form
-                    , values: opts.values
-                      ? parseValues(fields, opts.values)
+                    , values: nextOpts.values
+                      ? parseValues(fields, nextOpts.values)
                       : {}
-                    , opts
+                    , nextOpts
                 }
             };
 
         case DESTROY:
             return {
                 ...omit(state, formName)
+            };
+
+        case OPTS:
+            return {
+                ...state
+                , [formName]: {
+                    ...form
+                    , opts: {
+                        ...form.opts
+                        , ...nextOpts
+                    }
+                }
+            };
+
+        case VALIDATE:
+            return {
+                ...state
+                , [formName]: {
+                    ...validate(form)
+                }
             };
 
         case ADD:
