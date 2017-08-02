@@ -1,0 +1,84 @@
+{
+  "name": "formred",
+  "version": "1.0.7",
+  "description": "The ergonomic React/Redux form library",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "browser": "dist/form-red.js",
+  "scripts": {
+    "clean": "rimraf es lib dist _book",
+    "build": "npm run build:lib && npm run build:es && npm run build:umd && npm run build:min",
+    "build:es": "babel src --source-maps --out-dir es",
+    "build:lib": "cross-env BABEL_ENV=lib babel src --source-maps --out-dir lib",
+    "build:umd": "rollup -c -i es/index.js -o dist/form-red.js",
+    "build:min": "cross-env ROLLUP_ENV=min rollup -c -i es/index.js -o dist/form-red.min.js",
+    "docs:prepare": "gitbook install",
+    "docs:build": "npm run docs:prepare && gitbook build -g zewish/formred",
+    "docs:watch": "npm run docs:prepare && gitbook serve",
+    "docs:publish": "rimraf _book && npm run docs:build && cd _book && echo 'formred.js.org' > CNAME && git init && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && git add . && git commit -am 'Update docs' && git push git@github.com:zewish/formred gh-pages --force",
+    "docs": "npm run docs:prepare && npm run docs:build",
+    "test": "cross-env BABEL_ENV=test mocha -r babel-register -r jsdom-global/register -r test/init.js test/*.test.js",
+    "prepublish": "npm run test && npm run clean && npm run build && npm run docs:publish"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zewish/formred.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zewish/formred/issues"
+  },
+  "author": "Iskren Slavov <iskren.s@gmail.com>",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015-no-commonjs": "0.0.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.1.0",
+    "chai-enzyme": "^0.8.0",
+    "cross-env": "^5.0.1",
+    "enzyme": "^2.9.1",
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-anchorjs": "^1.1.1",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-github": "^2.0.0",
+    "gitbook-plugin-prism": "^2.2.1",
+    "jsdom": "^11.1.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^3.5.0",
+    "react": "^15.6.1",
+    "react-addons-test-utils": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "prop-types": "^15.5.10",
+    "redux": "^3.7.2",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.45.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-uglify": "^2.0.1",
+    "sinon": "^2.4.1",
+    "sinon-chai": "^2.12.0",
+    "uglify-es": "3.0.27"
+  },
+  "dependencies": {
+    "o.set": "^1.0.6",
+    "oget": "^1.0.9"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "prop-types": "*",
+    "react-redux": "*",
+    "redux": "*"
+  }
+}
