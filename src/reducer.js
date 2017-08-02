@@ -78,7 +78,7 @@ export default (state = {}, { type, payload }) => {
                     , values: nextOpts.values
                       ? parseValues(fields, nextOpts.values)
                       : {}
-                    , nextOpts
+                    , opts: nextOpts
                 }
             };
 
