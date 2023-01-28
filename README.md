@@ -1,3 +1,6 @@
+# DEPRECATED
+**This package is no logner maintained. In case anyone is interested in supporting this and using it actively in a project, feel free to contact me.**
+
 ## FormRed
 
 The ergonomic React/Redux form library
